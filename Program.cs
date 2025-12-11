@@ -26,6 +26,9 @@ builder.Services.AddControllersWithViews();
 // Add App Service logging
 builder.Logging.AddAzureWebAppDiagnostics();
 
+builder.Services.AddDbContext<MyDatabaseContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -48,3 +51,4 @@ app.MapControllerRoute(
     pattern: "{controller=Todos}/{action=Index}/{id?}");
 
 app.Run();
+
