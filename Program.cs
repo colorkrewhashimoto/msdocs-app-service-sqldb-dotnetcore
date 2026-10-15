@@ -1,6 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Azure.Monitor.OpenTelemetry.AspNetCore;
+using OpenTelemetry.Resources;
+
+using Microsoft.EntityFrameworkCore;
 using DotNetCoreSqlDb.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddOpenTelemetry()
+    .UseAzureMonitor()
+    .ConfigureResource(r => r
+        .AddService(serviceName: "todo-app", serviceVersion: "1.0.0"));
 
 // Add database context and cache
 if(builder.Environment.IsDevelopment())
