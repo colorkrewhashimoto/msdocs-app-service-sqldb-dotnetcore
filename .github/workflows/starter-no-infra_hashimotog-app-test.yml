@@ -6,7 +6,7 @@ name: Build and deploy ASP.Net Core app to Azure Web App - hashimotog-app-test
 on:
   push:
     branches:
-      - starter-no-infra
+      - 'starter-no-infra'
   workflow_dispatch:
 
 jobs:
@@ -51,9 +51,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_2BB466CE0E6A491187EF3FDD2A83FB8C }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_DB0FD9301AA24A63943EF7335E614388 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_252A99DEFA9E40ACAD55F8DC86E8647E }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_12716E352B8D4C0AACF755C291FB5982 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_0F2FC2ACF2954A4E86AD691A9E030861 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B131F6DE389149A3802D9BB585771331 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
