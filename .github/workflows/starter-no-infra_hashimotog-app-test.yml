@@ -3,10 +3,17 @@
 
 name: Build and deploy ASP.Net Core app to Azure Web App - hashimotog-app-test
 
+#on:
+#  push:
+#    branches:
+#      - starter-no-infra
+#  workflow_dispatch:
+
 on:
   push:
     branches:
       - starter-no-infra
+      - feature/otel-verification
   workflow_dispatch:
 
 jobs:
